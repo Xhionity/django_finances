@@ -1,0 +1,26 @@
+﻿{% extends "my_site/base.html" %}
+{% block content %}
+      <div class="content-section">
+            <p class='text-muted'>
+              <ul class="list-group">
+                <a class="list-group-item list-group-item-light" align="center" href="admin/my_site/post/add/">Новая запись</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    {% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <h3><a class="article-title" href="#">{{ post.title }}</a></h3>
+              <div class="article-metadata">
+              <small class="text-muted">{{ post.date_posted|date:'d/m/Y'}} </small>
+              </div>
+            <p class="article-content">{{ post.content }}</p>
+
+               <div class="col-md-4">
+
+
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
