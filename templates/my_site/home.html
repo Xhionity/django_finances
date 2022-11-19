@@ -1,25 +1,25 @@
 ﻿{% extends "my_site/base.html" %}
 {% block content %}
-      <div class="content-section">
-            <p class='text-muted'>
-              <ul class="list-group">
-                <a class="list-group-item list-group-item-light" align="center" href="admin/my_site/post/add/">Новая запись</a>
-            </p>
-          </div>
-        </div>
-      </div>
+
+    <form action="/admin/my_site/post/add/" method="post">
+    {% csrf_token %}
+        <label for="title">Назначение: </label>
+            <input id="title" type="text" name="title" value="{{ post.title }}">
+        <label for="content">Сумма: </label>
+            <input id="content" type="number" name="content" value="{{ post.content }}">
+
+            <input type="submit" value="Добавить">
+    </form>
+
     {% for post in posts %}
         <article class="media content-section">
           <div class="media-body">
             <h3><a class="article-title" href="#">{{ post.title }}</a></h3>
               <div class="article-metadata">
-              <small class="text-muted">{{ post.date_posted|date:'d/m/Y'}} </small>
+              <small class="text-muted">{{ post.date_posted|date:'d/m/Y f a'}} </small>
               </div>
             <p class="article-content">{{ post.content }}</p>
-
                <div class="col-md-4">
-
-
           </div>
         </article>
     {% endfor %}
