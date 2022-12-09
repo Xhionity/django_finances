@@ -1,14 +1,15 @@
 ﻿{% extends "my_site/base.html" %}
 {% block content %}
 
-    <form method="POST">
+    <div>
+    <form method="post">
         {% csrf_token %}
-        <label for="title">Назначение: </label>
-            <input id="title" type="text" name="title" value='{{ posts.title }}'>
-        <label for="content">Сумма: </label>
-            <input id="content" type="number" step="0.01" min="0" placeholder="0,00" name="content" value='{{ posts.content }}'>
-            <input type="submit" value="Добавить">
+        {{ form.title }}
+        {{ form.content }}
+        <button class="btn btn-success" type="submit">Добавить</button>
+
     </form>
+    </div>
 
     {% for post in posts %}
         <article class="media content-section">

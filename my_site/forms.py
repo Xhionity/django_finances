@@ -1,5 +1,7 @@
-from django import forms
+from django.forms import ModelForm
+from .models import Post
 
-class ContactForm(forms.Form):
-    title = forms.CharField(label='title', max_length=100, verbose_name="На что")
-    content = forms.FloatField(label='content', verbose_name="Сколько")
+class PostForm(ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'content']
