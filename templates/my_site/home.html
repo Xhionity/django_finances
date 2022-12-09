@@ -4,10 +4,9 @@
     <div>
     <form method="post">
         {% csrf_token %}
-        {{ form.title }}
-        {{ form.content }}
-        <button class="btn btn-success" type="submit">Добавить</button>
-
+        {{ form.title }}<br>
+        {{ form.content }}<br>
+        <button class="btn btn-success" type="submit">Добавить</button><br>
     </form>
     </div>
 
