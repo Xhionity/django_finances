@@ -1,13 +1,12 @@
 ﻿{% extends "my_site/base.html" %}
 {% block content %}
 
-    <form action="/admin/my_site/post/add/" method="post">
-    {% csrf_token %}
+    <form method="POST">
+        {% csrf_token %}
         <label for="title">Назначение: </label>
-            <input id="title" type="text" name="title" value="{{ post.title }}">
+            <input id="title" type="text" name="title" value='{{ posts.title }}'>
         <label for="content">Сумма: </label>
-            <input id="content" type="number" name="content" value="{{ post.content }}">
-
+            <input id="content" type="number" step="0.01" min="0" placeholder="0,00" name="content" value='{{ posts.content }}'>
             <input type="submit" value="Добавить">
     </form>
 
@@ -18,7 +17,7 @@
               <div class="article-metadata">
               <small class="text-muted">{{ post.date_posted|date:'d/m/Y f a'}} </small>
               </div>
-            <p class="article-content">{{ post.content }}</p>
+            <p class="article-content">{{ post.content }} р.</p>
                <div class="col-md-4">
           </div>
         </article>

@@ -7,4 +7,3 @@ def home(request):
         'posts': Post.objects.all()
     }
     return render(request, 'my_site/home.html', context)
-
