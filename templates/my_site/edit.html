@@ -1,0 +1,17 @@
+{% extends "my_site/base.html" %}
+{% block content %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Введите назанчение</label><br>
+            <input type="text" name="name" value="{{post.title}}">
+        </p>
+        <p>
+            <label>Введите сумму</label><br>
+            <input type="number" step="any" name="age" value="{{post.content}}" />
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+
+{% endblock %}

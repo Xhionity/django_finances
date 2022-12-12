@@ -18,8 +18,8 @@
               <small class="text-muted">{{ post.date_posted|date:'d/m/Y f a'}} </small>
               </div>
             <p class="article-content">{{ post.content }} р.</p>
-               <div class="col-md-4">
           </div>
+        <a href="edit/{{post.id}}">Изменить</a> | <a href="delete/{{post.id}}">Удалить</a>
         </article>
     {% endfor %}
 {% endblock content %}
