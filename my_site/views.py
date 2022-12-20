@@ -27,8 +27,8 @@ def edit(request, id):
         post = Post.objects.get(id=id)
 
         if request.method == "POST":
-            post.title = request.POST.get("name")
-            post.content = request.POST.get("age")
+            post.title = request.POST.get("title")
+            post.content = request.POST.get("content")
             post.save()
             return HttpResponseRedirect("/")
         else:
