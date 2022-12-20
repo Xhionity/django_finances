@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Sum
 from .models import Post
 from .forms import PostForm
 from django.http import HttpResponseRedirect, HttpResponseNotFound
@@ -17,7 +18,8 @@ def home(request):
     context = {
         'posts': Post.objects.all().order_by('-id'),
         'form': form,
-        'error': error
+        'error': error,
+        'sum': Post.objects.aggregate(Sum('content'))
     }
     return render(request, 'my_site/home.html', context)
 
