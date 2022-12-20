@@ -14,7 +14,7 @@ def home(request):
 
     form = PostForm
     context = {
-        'posts': Post.objects.all(),
+        'posts': Post.objects.all().order_by('-id'),
         'form': form,
         'error': error
     }
