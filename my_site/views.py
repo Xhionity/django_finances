@@ -3,6 +3,7 @@ from .models import Post
 from .forms import PostForm
 from django.http import HttpResponseRedirect, HttpResponseNotFound
 
+
 def home(request):
     error = ''
     if request.method == 'POST':
@@ -14,11 +15,12 @@ def home(request):
 
     form = PostForm
     context = {
-        'posts': Post.objects.all(),
+        'posts': Post.objects.all().order_by('-id'),
         'form': form,
         'error': error
     }
     return render(request, 'my_site/home.html', context)
+
 
 def edit(request, id):
     try:
@@ -33,6 +35,7 @@ def edit(request, id):
             return render(request, "my_site/edit.html", {"post": post})
     except Post.DoesNotExist:
         return HttpResponseNotFound("<h2>Post not found</h2>")
+
 
 def delete(request, id):
     try:
