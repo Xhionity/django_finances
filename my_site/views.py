@@ -12,7 +12,7 @@ def home(request):
         if form.is_valid():
             form.save()
         else:
-            error = 'Форма была неверной'
+            error = 'Form is not correct'
 
     form = PostForm
     context = {
